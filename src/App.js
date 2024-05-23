@@ -1,12 +1,17 @@
 import React from 'react';
-import LoginPage from './JS/LoginPage'; // 确保这里的路径根据你的文件结构调整
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoginPage from './JS/LoginPage';
+import HomePage from './JS/HomePage';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <LoginPage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/homepage" element={<HomePage />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

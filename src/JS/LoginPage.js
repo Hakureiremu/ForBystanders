@@ -29,32 +29,35 @@ const LoginPage = () => {
 
   const getButtons = (e) => {
     e.preventDefault();
-    let form = e.target.form;
-    let formData = new FormData(form);
-    let data = {
-      email: formData.get("email"),
-      password: formData.get("password")
-    };
+    // let form = e.target.form;
+    // let formData = new FormData(form);
+    // let data = {
+    //   email: formData.get("email"),
+    //   password: formData.get("password")
+    // };
 
-    fetch(form.action, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          window.location.href = "/homepage"; // 登录成功后跳转到主页
-        } else {
-          alert("Login failed: " + data.message);
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("Login error. Please try again later.");
-      });
+    // fetch(form.action, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(data)
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     if (data.success) {
+    //       window.location.href = "/homepage"; // 登录成功后跳转到主页
+    //     } else {
+    //       alert("Login failed: " + data.message);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //     alert("Login error. Please try again later.");
+    //   });
+    
+    //redirect to homepage after login 
+    window.location.href = "/homepage"; 
   };
 
   const changeForm = (e) => {
