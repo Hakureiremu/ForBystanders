@@ -1,0 +1,104 @@
+/* src/CSS/homepage.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.home-page {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-start; /* 改为从左边开始排列 */
+  align-items: center;
+}
+
+.search-box {
+  width: 200px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  margin-right: auto;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-name {
+  margin-right: 10px;
+}
+
+.logout-button {
+  padding: 5px 10px;
+  background-color: #f00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.posts-list {
+  padding: 70px 20px 20px; /* Ensure content starts below the navbar */
+}
+
+.post-summary {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.post-title {
+  text-decoration: none;
+  color: #333;
+}
+
+.post-title h2 {
+  margin: 0;
+}
+
+.post-author {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.author-avatar {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-image {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.post-content {
+  margin: 10px 0;
+}
+
+.post-stats {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+}

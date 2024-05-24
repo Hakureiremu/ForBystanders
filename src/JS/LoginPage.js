@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import '../CSS/login.css'; // 引入CSS文件
+import '../CSS/login.css'; 
 
 const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [isGx, setIsGx] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
 
   useEffect((changeForm) => {
     const allButtons = document.querySelectorAll(".submit");
@@ -27,39 +30,7 @@ const LoginPage = () => {
     };
   }, []);
 
-  const getButtons = (e) => {
-    e.preventDefault();
-    // let form = e.target.form;
-    // let formData = new FormData(form);
-    // let data = {
-    //   email: formData.get("email"),
-    //   password: formData.get("password")
-    // };
-
-    // fetch(form.action, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify(data)
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     if (data.success) {
-    //       window.location.href = "/homepage"; // 登录成功后跳转到主页
-    //     } else {
-    //       alert("Login failed: " + data.message);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //     alert("Login error. Please try again later.");
-    //   });
-    
-    //redirect to homepage after login 
-    window.location.href = "/homepage"; 
-  };
-
+  //Switch the login&register form 
   const changeForm = (e) => {
     setIsGx(true);
     setTimeout(() => {
@@ -68,6 +39,56 @@ const LoginPage = () => {
 
     setIsSignUp(!isSignUp);
   };
+
+  //Input Constraint
+  const validateInput = () => {
+    if (email.length > 20 || password.length > 20 || username.length > 10) {
+      alert('Exceed Input Limit, Password Within 20, Username Within 10');
+      return false;
+    }
+    if (password.length < 8) {
+      alert('At Least 8 Characters for Password!');
+      return false;
+    }
+    return true;
+  };
+
+  //Comment out login&register below and Use this to directly jump to mainpage via login/register button, when the backend is not finished 
+  const getButtons = (e) => {
+    e.preventDefault();
+    window.location.href = "/homepage"; 
+  };
+
+  //login&register, comment out upwards function and use this to make a login/register request 
+  // const getButtons = async (e) => {
+  //   e.preventDefault();
+  //   if (!validateInput()) return;
+
+  //   const url = isSignUp ? 'http://localhost:5000/register' : 'http://localhost:5000/login';
+  //   const data = isSignUp ? { email, password, username } : { email, password };
+
+  //   try {
+  //     const response = await fetch(url, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
+
+  //     const result = await response.json();
+
+  //     if (result.success) {
+  //       window.location.href = '/homepage';
+  //     } else {
+  //       alert(result.message || 'Verification Fail, Please Retry');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //     alert('Request Fail, Please Retry');
+  //   }
+  // };
+
 
   return (
     <div className="main">
